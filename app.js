@@ -4,17 +4,20 @@ const app = express();
 app.use((req, res, next) => {
 
     console.log(req.headers.accesstoken);
-    if (req.headers.accesstoken === "alamakota") {
+    if (req.headers.accesstoken !== "alamakota") {
 
-    }
-    next();
+
+        res.status(204).send();
+
+    } else
+        next();
 
 
 })
 
 app.get('/', (req, res) => {
     res.send("hello world")
-}); 
+});
 
 
 
